@@ -72,5 +72,5 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     df = db_standardize(pd.read_csv(args.infile))
-    race_standardize(df).to_csv(args.outfile)
+    race_standardize(df).to_csv(args.outfile, index=False)
 
