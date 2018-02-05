@@ -83,5 +83,5 @@ if __name__ == '__main__':
                         required=True)
     args = parser.parse_args()
     df = add_new_features(pd.read_csv(args.infile))
-    df.to_csv(args.outfile)
+    df.to_csv(args.outfile, index=False)
 
