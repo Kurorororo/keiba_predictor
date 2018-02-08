@@ -77,7 +77,7 @@ parser.add_argument('-i',
                     required=True)
 parser.add_argument('-o',
                     '--outfile',
-                    help='出力となる CSV ファイル',
+                    help='出力となる pickle ファイル',
                     type=str,
                     required=True)
 args = parser.parse_args()
@@ -107,11 +107,11 @@ xgb = GridSearchCV(
 xgb.fit(X_train, y_train)
 
 print('XGB')
-print("Best parameters set found on development set: %s" % xgb.best_params_)
+print("%s" % xgb.best_params_)
 
 y_true, y_pred = y_test, xgb.predict(X_test)
 print(classification_report(y_true, y_pred))
-print("test accuracy: {}".format(accuracy_score(y_test, y_pred)))
+print("ccuracy: {}".format(accuracy_score(y_test, y_pred)))
 print("confusion_matrix:")
 print(confusion_matrix(y_test, y_pred))
 
